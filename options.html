@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="tr"><head><meta charset="utf-8"><title>UYAP Dosya Eşitleyici</title>
+<style>
+html,body{margin:0;padding:0}
+body{width:400px;font:13.5px/1.5 Arial,"Helvetica Neue",sans-serif;background:#fff;color:#1f2328}
+.head{display:flex;align-items:baseline;gap:8px;background:#0969da;color:#fff;padding:11px 14px}
+.head b{font-size:15px;flex:1}
+.head span{font-size:11.5px;opacity:.85}
+.body{padding:12px 14px 14px}
+#durum{display:flex;align-items:flex-start;gap:8px;padding:8px 10px;border-radius:6px;background:#f6f8fa;border-left:3px solid #afb8c1;font-size:12.5px;margin-bottom:12px;word-break:break-word}
+#durum.ok{background:#dafbe1;border-left-color:#1a7f37;color:#116329}
+#durum.err{background:#ffebe9;border-left-color:#cf222e;color:#a40e26}
+label{display:block;font-weight:700;margin-bottom:4px}
+.hint{font-size:12px;color:#57606a;margin:0 0 6px}
+code{background:#eaeef2;border-radius:4px;padding:0 4px;font-size:12px}
+input[type=text]{width:100%;padding:8px 9px;font-size:13.5px;box-sizing:border-box;border:1px solid #d0d7de;border-radius:6px}
+input[type=text]:focus{outline:2px solid #54aeff;border-color:#0969da}
+.row{display:flex;gap:8px;margin-top:10px}
+button{flex:1;padding:7px 10px;font:600 13px/1.4 Arial,sans-serif;cursor:pointer;border-radius:6px;border:1px solid #d0d7de;background:#f6f8fa;color:#24292f}
+button:hover{background:#eaeef2}
+#save{background:#0969da;border-color:#0969da;color:#fff}
+#save:hover{background:#0550ae}
+#msg{margin:10px 0 0;padding:7px 10px;border-radius:6px;font-size:12.5px;word-break:break-word}
+#msg:empty{display:none}
+#msg.ok{background:#dafbe1;color:#116329}
+#msg.err{background:#ffebe9;color:#a40e26}
+details{margin-top:12px;font-size:12.5px;color:#424a53}
+summary{cursor:pointer;font-weight:700;color:#0969da}
+pre{background:#f6f8fa;border:1px solid #d0d7de;border-radius:6px;padding:8px 10px;white-space:pre-wrap;font-size:12px;margin:6px 0}
+</style></head><body>
+<div class="head"><b>UYAP Dosya Eşitleyici</b><span id="surum"></span></div>
+<div class="body">
+<div id="durum">Yerel yardımcı denetleniyor...</div>
+<label for="baseDir">Evrakların yazılacağı ana klasör</label>
+<p class="hint">Her dosya için içinde <code>Daire_Esas</code> adlı bir alt klasör açılır. <code>~</code> ev klasörünüzdür.</p>
+<input type="text" id="baseDir" placeholder="~/UYAP">
+<div class="row">
+<button id="save">Kaydet</button>
+<button id="open">Klasörü aç</button>
+</div>
+<p id="msg"></p>
+<details>
+<summary>Nasıl kullanılır</summary>
+<p>UYAP Vatandaş Portal'da dosyalarınızı sorgulayın ve istediğiniz satırda <b>Eşitle</b> düğmesine basın. Evraklar yukarıdaki klasöre yazılır; klasörde olanlar atlanır.</p>
+</details>
+<details id="kurulum">
+<summary>Yerel yardımcı kurulumu</summary>
+<p>Eklenti klasöründeki <code>native</code> klasöründe kurulumu bir kez çalıştırın:</p>
+<pre>Linux / macOS:  bash install.sh
+Windows:        install_windows.bat (çift tıklayın)</pre>
+<p>Sonra tarayıcıyı tamamen kapatıp yeniden açın.</p>
+</details>
+</div>
+<script src="options.js"></script>
+</body></html>

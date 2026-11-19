@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "UYAP Dosya Eşitleyici",
+  "version": "2.3.1",
+  "description": "UYAP Vatandaş Portal dosya listesine 'Eşitle' düğmesi ekler; dosyanın evraklarını seçtiğiniz klasöre (Daire_Esas alt klasörü) doğrudan yazar, klasörde olanları atlar. Tarayıcı indirme penceresi açılmaz.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqvrL74Q1v388VRCN/xGrcrJzXlS41vr15RnOe9IeDoiG73Y7pViyOU1JJh37r4S46kvPvvvrRBNMJm8+OPkdy76LXiOS9Lzvoor5Q1WifuOpKJ3uFLWTgE0ka68podvwHDsww/3vyouiaLNQruzjWAsL0l/RH/MlqZKydXuwDQyMFKZm0mSxpOOqpS4orpdTbgUTVhyznYwMA+YHjIjfrnKW/JTWHs9iIMWVsNOjjNP0LkEs6LkX2Ftyjzeqrjsx1un3ce1ZNtxP/yc4nxSAENxIzXd2TMyHffJL9hvufgf/5obwSGq/FfIwDiXg773tbs3y8dUU4O62MfFMSQvsNwIDAQAB",
+  "permissions": [
+    "storage",
+    "nativeMessaging"
+  ],
+  "host_permissions": [
+    "https://vatandas.uyap.gov.tr/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_title": "UYAP Dosya Eşitleyici",
+    "default_popup": "options.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://vatandas.uyap.gov.tr/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "style.css"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    },
+    {
+      "matches": [
+        "https://vatandas.uyap.gov.tr/*"
+      ],
+      "js": [
+        "page.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true,
+      "world": "MAIN"
+    }
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": false
+  }
+}

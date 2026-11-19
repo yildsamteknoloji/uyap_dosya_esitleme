@@ -1,0 +1,48 @@
+UYAP Dosya Eşitleyici: kurulum
+==============================
+
+Ne yapar
+- UYAP Vatandaş Portal'da Dosya Sorgulama ekranındaki her dosya satırına "Eşitle" düğmesi ekler.
+- Düğmeye basınca dosyadaki evrakları seçtiğiniz klasöre yazar; klasörde olanları atlar.
+- Tarayıcının "nereye kaydedilsin" penceresi açılmaz.
+- Evraklar şu biçimde adlandırılır:  AnaKlasör/Daire_Yıl_No/YYYY-AA-GG_Evrak_Türü_BirimNo.pdf
+- Resmî bir araç değildir; Adalet Bakanlığı ile ilgisi yoktur. Yalnızca kendi oturumunuzda, kendi dosyalarınızı indirir.
+  Oturum bilgisi saklamaz, hiçbir yere veri göndermez.
+
+Gerekenler
+- Chromium tabanlı bir tarayıcı: Brave, Chrome, Chromium ya da Edge
+- Python 3
+
+Kurulum (bir kez)
+1) Yerel yardımcıyı tanıtın. Eklenti klasöründeki "native" klasöründe:
+     Linux / macOS :  bash install.sh
+     Windows       :  install_windows.bat dosyasına çift tıklayın
+   "Kendi kendine test: BAŞARILI" yazmalı.
+2) Tarayıcıyı TAMAMEN kapatıp yeniden açın (yalnızca pencereyi kapatmak yetmez).
+3) Tarayıcıda uzantılar sayfasını açın (brave://extensions ya da chrome://extensions),
+   "Geliştirici modu"nu açın, "Paketlenmemiş öğe yükle" ile bu klasörü seçin.
+   Eklenti kimliği şu olmalı: dddoamcdjibnmeocehdlolhaipfpdgll
+4) Eklentinin simgesine tıklayın: açılan küçük pencerede evrakların yazılacağı ana klasörü girip Kaydet'e basın.
+   Pencerenin üstünde yerel yardımcının çalışıp çalışmadığı yazar.
+
+Kullanım
+- UYAP Vatandaş Portal'a girin, Dosya Sorgulama ekranında dosyalarınızı sorgulayın, istediğiniz satırda "Eşitle"ye basın.
+- Sağ altta ilerleme paneli açılır. "Klasörü aç" düğmesi evrakların yazıldığı klasörü gösterir.
+- Yarıda kalırsa yeniden "Eşitle"ye basın; kaldığı yerden devam eder.
+- İndirilemeyen evrak olursa klasöre _hatalar.txt yazılır.
+
+Eklentiyi güncelledikten sonra
+- Uzantılar sayfasında eklentiyi yenileyin, ardından UYAP sekmesini de yenileyin (F5).
+
+Kaldırma
+- Linux / macOS :  bash install.sh --kaldir
+- Windows       :  install_windows.bat --kaldir
+- Sonra eklentiyi uzantılar sayfasından kaldırın.
+
+Sorun olursa
+- "Yerel yardımcıya ulaşılamadı": kurulum betiğini çalıştırıp tarayıcıyı tamamen kapatıp açtınız mı?
+- Tarayıcı Flatpak ya da Snap olarak kuruluysa kum havuzu yüzünden yardımcıya erişemeyebilir.
+- Yardımcının günlüğü: ev klasörünüzdeki .uyap_esitle_host.log
+
+Lisans
+- PolyForm Noncommercial 1.0.0 (LICENSE dosyası). Ticari kullanım için önceden yazılı izin gerekir.
